@@ -7,373 +7,265 @@
 <meta name="description" content="DWK Dakwerken bouwt daken die generaties meegaan: doordacht ontworpen, met zorg geplaatst en afgewerkt tot in de details. Vaste prijs, geen zorgen.">
 <style>
   :root{
-    --navy:#282858; --navy-d:#1d1d3a; --blue:#5AAFDB; --ink:#10131a;
-    --text:#2a2e38; --muted:#6b7280; --line:#e6e8ee; --bg:#ffffff; --alt:#f5f6f9;
+    --accent:#1B6E76; --accent-d:#124F55; --accent-l:#93CBCF;
+    --ink:#1B2224; --dark:#1E2A2C; --darker:#131C1D;
+    --tint:#F0F6F6; --line:#D9E7E7; --muted:#5B7276; --bg:#ffffff;
     --max:1180px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;color:var(--text);background:var(--bg);
+  body{margin:0;color:var(--ink);background:var(--bg);
     font:15px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
-  h1,h2,h3{color:var(--navy);line-height:1.15;margin:0 0 .4em}
-  h1{font-size:40px;font-weight:800}
+  h1,h2,h3{color:var(--ink);line-height:1.14;margin:0 0 .4em}
+  h1{font-size:44px;font-weight:800}
   h2{font-size:36px;font-weight:800}
   h3{font-size:20px;font-weight:700}
   p{margin:0 0 1em}
-  a{color:var(--navy);text-decoration:none}
+  a{color:var(--accent);text-decoration:none}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  .btn{display:inline-block;padding:13px 24px;border-radius:6px;font-weight:700;
+  .btn{display:inline-block;padding:14px 26px;border-radius:8px;font-weight:700;
     font-size:14px;letter-spacing:.3px;cursor:pointer;border:2px solid transparent}
-  .btn-primary{background:var(--blue);color:#fff}
-  .btn-primary:hover{background:#4a9bc6}
-  .btn-ghost{border-color:#fff;color:#fff}
-  .btn-ghost:hover{background:#fff;color:var(--navy)}
-  .btn-outline{border-color:var(--navy);color:var(--navy)}
-  .btn-outline:hover{background:var(--navy);color:#fff}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-d)}
+  .btn-outline{border-color:var(--ink);color:var(--ink)}
+  .btn-outline:hover{background:var(--ink);color:#fff}
+  .btn-white{background:#fff;color:var(--accent-d)}
+  .btn-white:hover{background:var(--darker);color:#fff}
+  .pill{display:inline-flex;align-items:center;gap:6px;background:color-mix(in srgb, var(--accent) 14%, white);
+    color:var(--accent-d);font-weight:700;font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;
+    padding:7px 14px;border-radius:30px;margin-bottom:14px}
+  .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
 
   /* header */
-  header.site{position:sticky;top:0;z-index:50;background:var(--navy);
-    box-shadow:0 2px 10px rgba(0,0,0,.18)}
-  .nav{display:flex;align-items:center;gap:24px;height:78px}
-  .logo{height:46px}.logo svg{height:46px;width:auto;display:block}
-  nav.menu{margin-left:auto;display:flex;gap:26px;align-items:center}
-  nav.menu a{color:#dfe3f0;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.4px}
-  nav.menu a:hover{color:#fff}
-  .nav .cta{display:flex;gap:12px;align-items:center}
-  .nav .tel{color:#fff;font-weight:800;font-size:15px;white-space:nowrap}
-  @media(max-width:860px){nav.menu{display:none}.nav .tel{display:none}}
+  .topbar{background:var(--accent-d);color:#fff;font-size:12.5px}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px}
+  .topbar a{color:#fff}
+  @media(max-width:700px){.topbar .region{display:none}}
+  header.site{background:#fff;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:28px;height:84px}
+  .brand{font-weight:800;font-size:21px;letter-spacing:.2px;color:var(--ink)}
+  .brand em{font-style:normal;color:var(--accent);margin-left:6px}
+  nav.menu{margin-left:auto;display:flex;gap:28px;align-items:center}
+  nav.menu a{color:var(--ink);font-weight:600;font-size:14px}
+  nav.menu a:hover{color:var(--accent)}
+  @media(max-width:860px){nav.menu{display:none}}
 
   /* hero */
-  .hero{position:relative;color:#fff;
-    background:linear-gradient(180deg,rgba(40,40,88,.86),rgba(29,29,58,.92)),
-      url('https://detectieservice.github.io/dakfotos/files/project-gallery/dakkoepelrenovatie-001.webp') center/cover no-repeat}
-  .hero-h{max-width:var(--max);margin:0 auto;padding:84px 24px 76px}
-  .hero h1{color:#fff;max-width:14ch}
-  .hero .sub{font-size:20px;color:#dfe7f5;max-width:46ch;margin-bottom:26px}
-  .hero .actions{display:flex;gap:14px;flex-wrap:wrap}
-  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
-  .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
-    color:#eaf0fb;font-size:13px;font-weight:600;padding:7px 14px;border-radius:30px}
+  .hero{background:var(--tint);padding:70px 0 90px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .split.reverse .hero-media{order:-1}
+  .hero h1{max-width:13ch}
+  .hero .sub{font-size:19px;color:var(--muted);max-width:44ch;margin-bottom:24px}
+  .hero .actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+  .chips{display:flex;gap:18px;flex-wrap:wrap}
+  .chip{font-size:13.5px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:7px}
+  .chip::before{content:"✓";display:inline-flex;align-items:center;justify-content:center;
+    width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:800}
+  .hero-media{position:relative}
+  .hero-media::before{content:"";position:absolute;inset:18px -18px -18px 18px;
+    background:var(--accent);border-radius:18px;z-index:0}
+  .hero-media img{position:relative;z-index:1;width:100%;aspect-ratio:4/3.1;object-fit:cover;
+    border-radius:18px;display:block;box-shadow:0 20px 40px rgba(0,0,0,.18)}
+  @media(max-width:820px){.split{grid-template-columns:1fr;gap:34px}.split.reverse .hero-media{order:0}
+    .hero-media::before{inset:12px -12px -12px 12px}}
+
+  /* trust strip */
+  .trust{background:var(--dark);color:#fff;padding:18px 0}
+  .trust .wrap{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
+  .trust .t{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.3px;
+    text-transform:uppercase;color:#fff}
+  .trust .t::before{content:"✓";color:var(--accent-l);font-weight:800}
 
   /* sections */
-  section{padding:68px 0}
-  section.alt{background:var(--alt)}
-  .lead{max-width:760px}
-  .eyebrow{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:1.5px;
-    text-transform:uppercase;margin-bottom:10px}
-  .two{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-  .two img{width:100%;height:100%;max-height:420px;object-fit:cover;border-radius:10px;display:block}
-  @media(max-width:820px){.two{grid-template-columns:1fr;gap:28px}}
+  section{padding:76px 0}
+  section.tint{background:var(--tint)}
+  .center{max-width:720px;margin:0 auto;text-align:center}
+  .lead-p{max-width:760px}
 
   /* services */
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
-  .svc{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+  .svc{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative;
     transition:transform .15s,box-shadow .15s}
-  .svc:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(40,40,88,.13)}
-  .svc-img{aspect-ratio:410/327;overflow:hidden}
+  .svc:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(0,0,0,.1)}
+  .svc-img{aspect-ratio:410/327;overflow:hidden;position:relative}
   .svc-img img{width:100%;height:100%;object-fit:cover;display:block}
-  .svc h3{margin:0;padding:16px 18px;font-size:20px}
+  .svc-num{position:absolute;top:14px;left:14px;z-index:2;background:var(--accent);color:#fff;
+    font-weight:800;font-size:14px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+    border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+  .svc h3{margin:0;padding:16px 18px;font-size:19px}
   @media(max-width:820px){.svc-grid{grid-template-columns:1fr 1fr;gap:16px}}
   @media(max-width:520px){.svc-grid{grid-template-columns:1fr}}
 
-  /* gallery */
-  .gallery{columns:4 240px;column-gap:14px;margin-top:34px}
-  .g-item{margin:0 0 14px;break-inside:avoid;position:relative;border-radius:9px;overflow:hidden}
-  .g-item img{width:100%;display:block}
-  .g-item figcaption{position:absolute;left:0;right:0;bottom:0;
-    background:linear-gradient(0deg,rgba(29,29,58,.9),transparent);
-    color:#fff;font-size:12.5px;font-weight:600;padding:22px 12px 9px;
-    opacity:0;transition:opacity .18s}
-  .g-item:hover figcaption{opacity:1}
+  /* featured work */
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:210px;gap:16px;margin-top:38px}
+  .f-item{position:relative;border-radius:12px;overflow:hidden}
+  .f-item.big{grid-column:span 2;grid-row:span 2}
+  .f-item img{width:100%;height:100%;object-fit:cover;display:block}
+  .f-item .cap{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.55);color:#fff;
+    font-size:12px;font-weight:600;padding:6px 11px;border-radius:20px;max-width:calc(100% - 20px)}
+  @media(max-width:820px){.feature-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}.f-item.big{grid-column:span 2;grid-row:span 1}}
 
-  /* call band */
-  .callband{background:var(--navy);color:#fff;text-align:center;padding:64px 24px}
-  .callband h2{color:#fff;max-width:22ch;margin:0 auto .2em}
-  .callband p{color:#cdd5ea;font-size:18px;max-width:40ch;margin:0 auto 26px}
-  .callband .tel-big{display:inline-block;font-size:26px;font-weight:800;color:#fff;margin-top:6px}
+  /* about row */
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .row.reverse .row-media{order:-1}
+  .row-media{position:relative}
+  .row-media::before{content:"";position:absolute;inset:-14px 14px 14px -14px;background:var(--accent-l);
+    border-radius:16px;z-index:0}
+  .row-media img{position:relative;z-index:1;width:100%;height:100%;max-height:380px;object-fit:cover;
+    border-radius:14px;display:block}
+  @media(max-width:820px){.row{grid-template-columns:1fr;gap:30px}.row.reverse .row-media{order:0}
+    .row-media::before{display:none}}
+
+  /* business band */
+  .biz{background:var(--accent);color:#fff}
+  .biz h2{color:#fff}
+  .biz p{color:rgba(255,255,255,.88)}
+  .biz .pill{background:rgba(255,255,255,.18);color:#fff}
+  .biz .pill::before{background:#fff}
+  .biz .row-media::before{background:var(--accent-d)}
+  .biz .row-media img{box-shadow:0 16px 32px rgba(0,0,0,.22)}
+
+  /* bottom cta */
+  .callwrap{padding:0 24px;margin-top:-56px;position:relative;z-index:5}
+  .callband{background:var(--dark);color:#fff;text-align:center;padding:56px 24px;border-radius:20px;
+    max-width:var(--max);margin:0 auto;box-shadow:0 24px 50px rgba(0,0,0,.22)}
+  .callband .pill{background:rgba(255,255,255,.14);color:#fff}
+  .callband .pill::before{background:var(--accent-l)}
+  .callband h2{color:#fff;max-width:24ch;margin:0 auto .2em}
+  .callband p{color:rgba(255,255,255,.75);font-size:17px;max-width:40ch;margin:0 auto 26px}
+  .callband .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
   /* footer */
-  footer.site{background:var(--navy-d);color:#aeb6cf;padding:54px 0 26px;font-size:14px}
+  footer.site{background:var(--darker);color:#b9b2ae;padding:72px 0 28px;font-size:14px;margin-top:56px;
+    border-top:3px solid var(--accent)}
   .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
-  footer .logo svg{height:54px}
-  footer h4{color:#fff;font-size:15px;margin:0 0 14px;text-transform:uppercase;letter-spacing:.5px}
+  .f-brand{font-weight:800;font-size:20px;color:#fff}
+  .f-brand em{font-style:normal;color:var(--accent-l);margin-left:6px}
+  footer h4{color:#fff;font-size:14px;margin:0 0 14px;text-transform:uppercase;letter-spacing:.5px}
   footer ul{list-style:none;margin:0;padding:0}
   footer li{margin:0 0 8px}
-  footer a{color:#aeb6cf}footer a:hover{color:#fff}
-  .f-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:18px;
-    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#8b93b0}
+  footer a{color:#b9b2ae}footer a:hover{color:#fff}
+  .f-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:18px;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#8a827d}
   @media(max-width:820px){.f-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:520px){.f-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
+<div class="topbar">
+  <div class="wrap">
+    <span class="region">Regio Kempen · Antwerpen · Limburg</span>
+    <a href="tel:+3214000000">+32 14 00 00 00</a>
+  </div>
+</div>
+
 <header class="site">
   <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="DWK Dakwerken"><svg viewBox="0 0 516 121" xmlns="http://www.w3.org/2000/svg" aria-label="BRAND"><text x="0" y="58" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="52" fill="#ffffff">DAK WERKEN</text><text x="2" y="108" font-family="Arial, Helvetica, sans-serif" font-weight="500" font-size="40" letter-spacing="10" fill="#5AAFDB">KEMPEN</text></svg></a>
+    <a class="brand" href="#top">DAK WERKEN<em>KEMPEN</em></a>
     <nav class="menu">
       <a href="#diensten">Diensten</a>
-      <a href="#realisaties">Projecten</a>
+      <a href="#werken">Realisaties</a>
       <a href="#over">Over ons</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="cta">
-      <span class="tel">+32 14 00 00 00</span>
-      <a class="btn btn-primary" href="#contact">Vraag een offerte</a>
-    </div>
+    <a class="btn btn-primary" href="#contact">Vraag een offerte</a>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
-    <div class="hero-h">
-      <div class="eyebrow" style="color:var(--blue)">DWK Dakwerken</div>
-      <h1>Gebouwd om te duren, gemaakt met zorg</h1>
-      <p class="sub">Uw dak: vaste prijs, geen zorgen.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#contact">Vraag een eerlijke prijs</a>
-        <a class="btn btn-ghost" href="tel:+3214000000">Bel +32 14 00 00 00</a>
+    <div class="wrap split reverse">
+      <div class="hero-copy">
+        <div class="pill">DWK Dakwerken</div>
+        <h1>Gebouwd om te duren, gemaakt met zorg</h1>
+        <p class="sub">Uw dak: vaste prijs, geen zorgen.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Vraag een eerlijke prijs</a>
+          <a class="btn btn-outline" href="tel:+3214000000">Bel +32 14 00 00 00</a>
+        </div>
+        <div class="chips"><span class="chip">Echt vakmanschap</span><span class="chip">Duurzame materialen</span><span class="chip">Afgewerkt tot in detail</span></div>
       </div>
-      <div class="chips"><span class="chip">✓ Echt vakmanschap</span><span class="chip">✓ Duurzame materialen</span><span class="chip">✓ Afgewerkt tot in detail</span></div>
+      <div class="hero-media"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakkoepelrenovatie-001.webp" alt=""></div>
     </div>
   </section>
+
+  <div class="trust">
+    <div class="wrap"><span class="t">Echt vakmanschap</span><span class="t">Duurzame materialen</span><span class="t">Afgewerkt tot in detail</span></div>
+  </div>
 
   <section>
-    <div class="wrap lead">
-      <div class="eyebrow">Echt vakmanschap, echte resultaten</div>
+    <div class="wrap lead-p">
+      <div class="pill">Echt vakmanschap, echte resultaten</div>
       <h2>Alle soorten dakwerken, zonder verrassingen</h2>
-      <p>Een dak is meer dan dakpannen. Bij DWK Dakwerken bouwen we daken die generaties meegaan: doordacht ontworpen, met zorg geplaatst en afgewerkt tot in de kleinste details. Zo woon je jarenlang zorgeloos.</p>
-      <p>Of het nu gaat om een nieuw dak, een volledige renovatie, dakgoten, isolatie of een herstelling — we maken het u eenvoudig en leveren werk waar u jaren zorgeloos van geniet.</p>
+      <p>Een dak is meer dan dakpannen. Bij DWK Dakwerken bouwen we daken die generaties meegaan: doordacht ontworpen, met zorg geplaatst en afgewerkt tot in de kleinste details. Zo woon je jarenlang zorgeloos.</p><p>Of het nu gaat om een nieuw dak, een volledige renovatie, dakgoten, isolatie of een herstelling — we maken het u eenvoudig en leveren werk waar u jaren zorgeloos van geniet.</p>
     </div>
   </section>
 
-  <section class="alt" id="diensten">
+  <section class="tint" id="diensten">
     <div class="wrap">
-      <div class="eyebrow">Onze diensten</div>
-      <h2>Alle soorten dakwerken op maat</h2>
-      <p class="lead">Met onze vele jaren ervaring en professioneel materiaal zijn we echte specialisten in dakwerken — en dus in vele domeinen thuis.</p>
-      <div class="svc-grid">
-        <article class="svc">
-          <div class="svc-img"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project/renovatie-hellend-dak-te-dessel-001.webp" alt="Hellende daken"></div>
-          <h3>Hellende daken</h3>
-        </article>
-        <article class="svc">
-          <div class="svc-img"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-met-epdm-001.webp" alt="Platte daken & EPDM"></div>
-          <h3>Platte daken & EPDM</h3>
-        </article>
-        <article class="svc">
-          <div class="svc-img"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-van-a-tot-z-001.webp" alt="Dakrenovatie"></div>
-          <h3>Dakrenovatie</h3>
-        </article>
-        <article class="svc">
-          <div class="svc-img"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/renovatie-dmv-roofing-001.webp" alt="Roofing & bitumen"></div>
-          <h3>Roofing & bitumen</h3>
-        </article>
-        <article class="svc">
-          <div class="svc-img"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/plaatsen-van-veluxramen-001.webp" alt="Dakramen & velux"></div>
-          <h3>Dakramen & velux</h3>
-        </article>
-        <article class="svc">
-          <div class="svc-img"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakgebinte-timmeren-kleurloos-geintegreerd-hout-001.webp" alt="Dakgebinte & timmerwerk"></div>
-          <h3>Dakgebinte & timmerwerk</h3>
-        </article>
+      <div class="center">
+        <div class="pill">Onze diensten</div>
+        <h2>Alle soorten dakwerken op maat</h2>
+        <p>Met onze vele jaren ervaring en professioneel materiaal zijn we echte specialisten in dakwerken — en dus in vele domeinen thuis.</p>
       </div>
+      <div class="svc-grid"><article class="svc"><div class="svc-img"><span class="svc-num">01</span><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project/renovatie-hellend-dak-te-dessel-001.webp" alt="Hellende daken"></div><h3>Hellende daken</h3></article><article class="svc"><div class="svc-img"><span class="svc-num">02</span><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-met-epdm-001.webp" alt="Platte daken & EPDM"></div><h3>Platte daken & EPDM</h3></article><article class="svc"><div class="svc-img"><span class="svc-num">03</span><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-van-a-tot-z-001.webp" alt="Dakrenovatie"></div><h3>Dakrenovatie</h3></article><article class="svc"><div class="svc-img"><span class="svc-num">04</span><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/renovatie-dmv-roofing-001.webp" alt="Roofing & bitumen"></div><h3>Roofing & bitumen</h3></article><article class="svc"><div class="svc-img"><span class="svc-num">05</span><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/plaatsen-van-veluxramen-001.webp" alt="Dakramen & velux"></div><h3>Dakramen & velux</h3></article><article class="svc"><div class="svc-img"><span class="svc-num">06</span><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakgebinte-timmeren-kleurloos-geintegreerd-hout-001.webp" alt="Dakgebinte & timmerwerk"></div><h3>Dakgebinte & timmerwerk</h3></article></div>
     </div>
   </section>
 
-  <section id="realisaties">
+  <section id="werken">
     <div class="wrap">
-      <div class="eyebrow">Projecten</div>
-      <h2>Onze realisaties</h2>
-      <p class="lead">Een greep uit recent uitgevoerde daken: renovaties, nieuwbouw, platte daken in EPDM, roofing, dakramen en timmerwerk.</p>
-      <div class="gallery">
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/achterbouw-dakbedekking-en-timmerwerken-001.webp" alt="Achterbouw dakbedekking en timmerwerken">
-          <figcaption>Achterbouw dakbedekking en timmerwerken</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/achterbouw-dakbedekking-en-timmerwerken-002.webp" alt="Achterbouw dakbedekking en timmerwerken">
-          <figcaption>Achterbouw dakbedekking en timmerwerken</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakgebinte-timmeren-kleurloos-geintegreerd-hout-001.webp" alt="Dakgebinte timmeren kleurloos geintegreerd hout">
-          <figcaption>Dakgebinte timmeren kleurloos geintegreerd hout</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakkoepelrenovatie-001.webp" alt="Dakkoepelrenovatie">
-          <figcaption>Dakkoepelrenovatie</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakkoepelrenovatie-002.webp" alt="Dakkoepelrenovatie">
-          <figcaption>Dakkoepelrenovatie</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-te-arendonk-001.webp" alt="Dakrenovatie te arendonk">
-          <figcaption>Dakrenovatie te arendonk</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-te-mol-001.webp" alt="Dakrenovatie te mol">
-          <figcaption>Dakrenovatie te mol</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-te-mol-002.webp" alt="Dakrenovatie te mol">
-          <figcaption>Dakrenovatie te mol</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-van-a-tot-z-001.webp" alt="Dakrenovatie van a tot z">
-          <figcaption>Dakrenovatie van a tot z</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-van-a-tot-z-002.webp" alt="Dakrenovatie van a tot z">
-          <figcaption>Dakrenovatie van a tot z</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-van-a-tot-z-003.webp" alt="Dakrenovatie van a tot z">
-          <figcaption>Dakrenovatie van a tot z</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/epdm-dakbedekking-voor-houtskeletbouw-001.webp" alt="EPDM dakbedekking voor houtskeletbouw">
-          <figcaption>EPDM dakbedekking voor houtskeletbouw</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/epdm-dakbedekking-voor-houtskeletbouw-002.webp" alt="EPDM dakbedekking voor houtskeletbouw">
-          <figcaption>EPDM dakbedekking voor houtskeletbouw</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/epdm-dakbedekking-voor-houtskeletbouw-003.webp" alt="EPDM dakbedekking voor houtskeletbouw">
-          <figcaption>EPDM dakbedekking voor houtskeletbouw</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/garage-met-plat-dak-001.webp" alt="Garage met plat dak">
-          <figcaption>Garage met plat dak</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbout-met-witte-roofing-001.webp" alt="Nieuwbout met witte roofing">
-          <figcaption>Nieuwbout met witte roofing</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-met-epdm-001.webp" alt="Nieuwbouw met EPDM">
-          <figcaption>Nieuwbouw met EPDM</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-met-epdm-002.webp" alt="Nieuwbouw met EPDM">
-          <figcaption>Nieuwbouw met EPDM</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-met-epdm-003.webp" alt="Nieuwbouw met EPDM">
-          <figcaption>Nieuwbouw met EPDM</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-001.webp" alt="Nieuwbouw te dessel">
-          <figcaption>Nieuwbouw te dessel</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-002.webp" alt="Nieuwbouw te dessel">
-          <figcaption>Nieuwbouw te dessel</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-003.webp" alt="Nieuwbouw te dessel">
-          <figcaption>Nieuwbouw te dessel</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-004.webp" alt="Nieuwbouw te dessel">
-          <figcaption>Nieuwbouw te dessel</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouwproject-kasterlee-001.webp" alt="Nieuwbouwproject kasterlee">
-          <figcaption>Nieuwbouwproject kasterlee</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouwproject-kasterlee-002.webp" alt="Nieuwbouwproject kasterlee">
-          <figcaption>Nieuwbouwproject kasterlee</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/plaatsen-van-veluxramen-001.webp" alt="Plaatsen van veluxramen">
-          <figcaption>Plaatsen van veluxramen</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/plaatsen-van-veluxramen-002.webp" alt="Plaatsen van veluxramen">
-          <figcaption>Plaatsen van veluxramen</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/project-in-oud-turnhout-in-samenwerking-met-renovatiewerken-vdb-001.webp" alt="Project in oud turnhout in samenwerking met renovatiewerken VDB">
-          <figcaption>Project in oud turnhout in samenwerking met renovatiewerken VDB</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/project-in-oud-turnhout-in-samenwerking-met-renovatiewerken-vdb-002.webp" alt="Project in oud turnhout in samenwerking met renovatiewerken VDB">
-          <figcaption>Project in oud turnhout in samenwerking met renovatiewerken VDB</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/realisatie-1-001.webp" alt="Realisatie 1">
-          <figcaption>Realisatie 1</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project/gecertificeerd-afbreken-van-asbest-daken-001.webp" alt="Gecertificeerd afbreken van asbest daken">
-          <figcaption>Gecertificeerd afbreken van asbest daken</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project/plat-dak-in-epdm-voor-houtskeletbouw-001.webp" alt="Plat dak in EPDM voor houtskeletbouw">
-          <figcaption>Plat dak in EPDM voor houtskeletbouw</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project/poolhouse-met-epdm-dakbedekking-001.webp" alt="Poolhouse met EPDM dakbedekking">
-          <figcaption>Poolhouse met EPDM dakbedekking</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project/project-in-samenwerking-met-meir-bouw-001.webp" alt="Project in samenwerking met meir bouw">
-          <figcaption>Project in samenwerking met meir bouw</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project/realisatie-10-001.webp" alt="Realisatie 10">
-          <figcaption>Realisatie 10</figcaption>
-        </figure>
-        <figure class="g-item">
-          <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project/realisatie-11-001.webp" alt="Realisatie 11">
-          <figcaption>Realisatie 11</figcaption>
-        </figure>
+      <div class="center">
+        <div class="pill">Projecten</div>
+        <h2>Onze realisaties</h2>
+        <p>Een greep uit recent uitgevoerde daken: renovaties, nieuwbouw, platte daken in EPDM, roofing, dakramen en timmerwerk.</p>
       </div>
+      <div class="feature-grid"><div class="f-item big"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-met-epdm-003.webp" alt="Nieuwbouw met EPDM"><span class="cap">Nieuwbouw met EPDM</span></div><div class="f-item"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-001.webp" alt="Nieuwbouw te dessel"><span class="cap">Nieuwbouw te dessel</span></div><div class="f-item"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-002.webp" alt="Nieuwbouw te dessel"><span class="cap">Nieuwbouw te dessel</span></div><div class="f-item"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-003.webp" alt="Nieuwbouw te dessel"><span class="cap">Nieuwbouw te dessel</span></div><div class="f-item"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-004.webp" alt="Nieuwbouw te dessel"><span class="cap">Nieuwbouw te dessel</span></div><div class="f-item"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouwproject-kasterlee-001.webp" alt="Nieuwbouwproject kasterlee"><span class="cap">Nieuwbouwproject kasterlee</span></div></div>
     </div>
   </section>
 
-  <section class="alt" id="over">
-    <div class="wrap two">
+  <section class="tint" id="over">
+    <div class="wrap row">
       <div>
-        <div class="eyebrow">Over ons</div>
+        <div class="pill">Over ons</div>
         <h2>Gebouwd om te duren</h2>
-        <p>Het team van DWK Dakwerken combineert echt vakmanschap met de modernste technieken en kwaliteitsmaterialen. Voorbij de dakpannen, voorbij de verwachtingen: we zorgen voor een strak, waterdicht en duurzaam resultaat.</p>
-        <p>DWK Dakwerken is actief in de Kempen, Antwerpen, Limburg en daarbuiten. Klaar voor een dak dat duurt? Bel ons en we bekijken samen wat mogelijk is, met een vaste prijs en helemaal zonder zorgen.</p>
+        <p>Het team van DWK Dakwerken combineert echt vakmanschap met de modernste technieken en kwaliteitsmaterialen. Voorbij de dakpannen, voorbij de verwachtingen: we zorgen voor een strak, waterdicht en duurzaam resultaat.</p><p>DWK Dakwerken is actief in de Kempen, Antwerpen, Limburg en daarbuiten. Klaar voor een dak dat duurt? Bel ons en we bekijken samen wat mogelijk is, met een vaste prijs en helemaal zonder zorgen.</p>
         <a class="btn btn-outline" href="#contact">Plan je dakwerken</a>
       </div>
-      <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-te-mol-002.webp" alt="Dakwerken in uitvoering">
+      <div class="row-media"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/dakrenovatie-te-mol-002.webp" alt=""></div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap two">
-      <img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-002.webp" alt="Dakwerken voor bedrijven">
+  <section class="biz">
+    <div class="wrap row">
       <div>
-        <div class="eyebrow">Voor bedrijven</div>
+        <div class="pill">Voor bedrijven</div>
         <h2>Ook dakwerken voor bedrijven</h2>
         <p>Ook voor aannemers, bouwfirma's, architecten en projectontwikkelaars leveren we vakwerk dat blijft. Een duidelijke prijs vooraf en een betrouwbare partner op lange termijn, voorbij de verwachtingen.</p>
-        <a class="btn btn-outline" href="#contact">Vraag een prijs voor je project</a>
+        <a class="btn btn-white" href="#contact">Vraag een prijs voor je project</a>
       </div>
+      <div class="row-media"><img loading="lazy" src="https://detectieservice.github.io/dakfotos/files/project-gallery/nieuwbouw-te-dessel-002.webp" alt=""></div>
     </div>
   </section>
 
-  <section class="callband" id="contact">
-    <div class="eyebrow" style="color:var(--blue)">Een verouderd dak dat aan vernieuwing toe is?</div>
-    <h2>Wij bouwen het, met echt vakmanschap en zorg.</h2>
-    <p>Bel DWK Dakwerken of vraag vrijblijvend je offerte aan.</p>
-    <a class="btn btn-primary" href="tel:+3214000000">Bel +32 14 00 00 00</a>
-    <span class="tel-big">of mail ons →</span>
-  </section>
+  <div class="callwrap" id="contact">
+    <div class="callband">
+      <div class="pill">Een verouderd dak dat aan vernieuwing toe is?</div>
+      <h2>Wij bouwen het, met echt vakmanschap en zorg.</h2>
+      <p>Bel DWK Dakwerken of vraag vrijblijvend je offerte aan.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:+3214000000">Bel +32 14 00 00 00</a>
+        <a class="btn btn-outline" style="border-color:#fff;color:#fff" href="#contact">Vraag je offerte aan</a>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer class="site">
   <div class="wrap">
     <div class="f-grid">
       <div>
-        <a class="logo" href="#top"><svg viewBox="0 0 516 121" xmlns="http://www.w3.org/2000/svg" aria-label="BRAND"><text x="0" y="58" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="52" fill="#ffffff">DAK WERKEN</text><text x="2" y="108" font-family="Arial, Helvetica, sans-serif" font-weight="500" font-size="40" letter-spacing="10" fill="#5AAFDB">KEMPEN</text></svg></a>
+        <div class="f-brand">DAK WERKEN<em>KEMPEN</em></div>
         <p style="margin-top:16px;max-width:38ch">Vakkundige dakwerken in de Kempen, Antwerpen, Limburg en daarbuiten — met een eerlijke prijs en een nette werf.</p>
       </div>
       <div>
